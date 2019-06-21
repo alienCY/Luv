@@ -12,12 +12,13 @@ import luv_token from 'Embark/contracts/luv_token';
 var rate = 0;
 
 $(document).ready(function() {
-    
-    EmbarkJS.onReady();
 
-    //Stats displayed:
-
-    //Current Supply
+EmbarkJS.onReady(error => {
+    if (error) {
+        console.error('Error while connecting to web3', error);
+        return;
+    }
+    //Current Supply 
     luv_token.methods.totalSupply().call().then(value => {
         $("#luvMinted").text((parseFloat(value / 1e18)).toFixed(18) + " LUV");
     });
@@ -37,6 +38,7 @@ $(document).ready(function() {
     luv_crowdsale.methods.getCurrentPrice().call().then(value => {
         $("#price").text((parseFloat(value / 1e18)).toFixed(18) + " ETH/LUV");
     });
+
 
     //Default Input Box Values:
     //$("#ethBox").val(parseFloat($("#ethBox").val()).toFixed(18));
@@ -64,6 +66,8 @@ $("#buyLuv_btn").click(function() {
     })
     .catch(error => console.log(error));
 });
+
+}); //End of onReady()
 
 //Countdown timer
 const second = 1000,
