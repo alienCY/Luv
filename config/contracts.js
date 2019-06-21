@@ -33,7 +33,7 @@ module.exports = {
       ,accounts: [
         {
           privateKey: secrets.privateKey,
-          balance: "69 ether"
+          balance: "50 ether"
         }
       ]
     },
@@ -68,7 +68,7 @@ module.exports = {
         
       },
       luv_crowdsale: {
-        args: [1e6, '$accounts[0]', '$luv_token', 1561939200 ,1893456000] //1561939200|1893456000
+        args: [1e6, '$accounts[0]', '$luv_token', 1561939200, 1893456000] //1561939200|1893456000
       }
     }
   },

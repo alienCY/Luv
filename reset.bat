@@ -1,1 +1,1 @@
-embark reset && npm install embarkjs-connector-web3@next && embark run
+embark reset && npm install embarkjs-connector-web3 && embark run
