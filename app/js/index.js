@@ -71,7 +71,7 @@ const second = 1000,
       hour = minute * 60,
       day = hour * 24;
 
-const utcDate = 1561118456; //Equal to opening time of crowdsale -- It's Unix Epoch time
+const utcDate = 1561939200; //Equal to opening time of crowdsale -- It's Unix Epoch time
 
 let countDown = new Date(utcDate*second).getTime(),
     x = setInterval( function() {
