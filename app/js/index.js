@@ -92,7 +92,6 @@ let countDown = new Date(utcDate*second).getTime(),
       if (distance < 0) {
         clearInterval(x);
         $('#countdown').hide();
-        $('#post_countdown').removeAttr('hidden');
       }
 
     }, second)
