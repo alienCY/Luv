@@ -1,4 +1,12 @@
 /*Text size tweak*/
 p {
-    font-size: 1.15rem;
+    font-size: 1.3rem;
 }
+
+/*Coins background for the purchase section*/
+.buyBg{
+    background-image: url('../assets/img/luv_coins.svg');
+    background-repeat: no-repeat;
+    background-position: center; 
+    position: relative;
+  }

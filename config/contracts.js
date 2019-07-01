@@ -68,7 +68,7 @@ module.exports = {
         
       },
       luv_crowdsale: {
-        args: [1e6, '$accounts[0]', '$luv_token', 1561939200, 1893456000] //1561939200|1893456000
+        args: [1e6, '$accounts[0]', '$luv_token', 1564617600, 1893456000] //1564617600|1893456000 -> August 1st 2019 GMT to Jan 1st 2030 GMT
       }
     }
   },

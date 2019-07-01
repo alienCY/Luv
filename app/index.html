@@ -15,7 +15,7 @@
     <article class="top-bar">
         <div class="top-bar-left">
         <ul class="menu">
-          <li><span><img style="width: 2em; margin: 0.2rem 1rem" src="assets/img/logo_white.svg"></span></li>
+          <li><span><img style="width: 2em; margin: 0.2rem 1rem" src="assets/img/logo_white.svg" alt="luv logo"></span></li>
           <li><a href="index.html" style="color: white">Home</a></li>
         <li><a href="whitepaper.html" style="color: white">Whitepaper</a></li>
         </ul>
@@ -39,7 +39,7 @@
     <p>The Luv coin is an ERC20 token. Luv is quite special since it differs from most tokens, that gain their value from the service that they are used for, since there is <b>no</b> such service. Luv tokens are practically useless! <br>However, they do have a value that transends matter and all physical limitations; they are worth as much as love!<br>That is because LUV is the token of love!</p>
     </div>
     <div class="medium-6 cell small-order-1 medium-order-2">
-    <img style="padding:8%" src="assets/img/logo.svg">
+    <img style="padding:8%" src="assets/img/logo.svg" alt="luv logo">
     </div>
     </div>
     <div class="grid-x grid-margin-x">
@@ -56,41 +56,55 @@
     <p>Luv will be minted with your ethereum and it's price will increase. <br>Love keeps getting more and more expensive anyway!..</p>
     </div>
     </div>
+    
     <hr id="stats">
     <div class="row column">
-    <ul class="vertical menu expanded text-center">
-    <li><a href="#stats"><div class="stat" id="luvMinted">loading...</div><h5 class="subheader">Current Supply</h5></a></li>
-    <li><a href="#stats"><div class="stat" id="ethCollected">loading...</div><h5 class="subheader">Collected</h5></a></li>
-    <li><a href="#stats"><div class="stat" id="rate">loading...</div><h5 class="subheader">Rate</h5></a></li>
-    <li><a href="#stats"><div class="stat" id="price">loading...</div><h5 class="subheader">Price</h5></a></li>
-    </ul>
+        <!--no Metamask warning-->
+        <div hidden id="no_metamask">
+            <br>
+            <h4 class="text-center expanded">
+              Cannot connect to the Ethereum network.<br>
+              Consider installing the Metamask extension or using a specialized browser.
+            </h4>
+            <br>
+            <hr>
+        </div>
+
+      <!--Information list-->
+      <div id="info"> 
+        <ul class="vertical menu expanded text-center">
+          <li><a href="#stats"><div class="stat" id="luvMinted">loading...</div><h5 class="subheader">Current Supply</h5></a></li>
+         <li><a href="#stats"><div class="stat" id="ethCollected">loading...</div><h5 class="subheader">Collected</h5></a></li>
+        <li><a href="#stats"><div class="stat" id="rate">loading...</div><h5 class="subheader">Rate</h5></a></li>
+        <li><a href="#stats"><div class="stat" id="price">loading...</div><h5 class="subheader">Price</h5></a></li>
+        </ul>
+        <hr>
+      </div>
     </div>
-    <hr>
+
     <div id="countdown" class="row column">   
       <br>
-      <h2 class="text-center">Time left until Luv becomes buyable!</h2>
+      <h2 class="text-center"><b>Time left until Luv becomes buyable!</b></h2>
       <br>
       <!--Countdown timer-->
-      <ul class="vertical medium-horizontal menu">
+      <ul class="vertical menu">
         <li class="buttonoid" id="days"></li>
         <li class="buttonoid" id="hours"></li>
         <li class="buttonoid" id="minutes"></li>
         <li class="buttonoid" id="seconds"></li>
       </ul>
   </div>
-    <div class="row column">
+    <div id="buyDiv" class="row column buyBg" style="height: 85vh">
       <h1 id="buy" class="text-center"><b>Get some Luv!</b></h1>
 
-      <!--Some space-->
-      <div hidden id="post_countdown" style="line-height:3rem">
-        <br>
-      </div>
-      <!--Some space-->
-
+      <div class="grid-x">
+        <div class="cell large-auto"></div>
+        <div class="cell large-auto">
+          <br><br>
         <div class="grid-x">
           <div class="cell shrink">
             <!--Luv logo-->
-            <img style="width: 2.5em; margin-right: 1em" src="assets/img/luv-logo-inv.png" />
+            <img style="width: 2.5em; margin-right: 1em" src="assets/img/luv-logo-inv.png" alt="luv logo" />
           </div>
           <div class="cell auto">
             <!--Luv box-->
@@ -101,21 +115,22 @@
         <div class="grid-x">
           <div class="cell shrink">
             <!--Eth logo-->
-            <img style="width: 2.5em; margin-right: 1em" src="assets/img/eth-logo.png" />
+            <img style="width: 2.5em; margin-right: 1em" src="assets/img/eth-logo.png" alt="eth logo" />
           </div>
           <div class="cell auto">
             <!--Eth box-->
             <input id="ethBox" type="number" min="0" placeholder="ETH"
               style="min-width: 20em; border-radius: 100px; font-size: x-large" />
           </div>
+        </div> 
         </div>
-        <br>
-        <button id="buyLuv_btn" class="button large expanded">Buy</button>
-    </div>
+      </div> 
+    </div> <!--Buy div--> 
+    <button id="buyLuv_btn" class="button large expanded">Buy</button>
     </article>
 
 <!--Footer menu-->
-<article class="grid-container">
+<article class="grid-container" style="height: 5vh">
   <div class="row column">
   <ul class="menu">
   <li><a href="#">One</a></li>

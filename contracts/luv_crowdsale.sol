@@ -8,7 +8,7 @@ import "../node_modules/openzeppelin-solidity/contracts/crowdsale/validation/Tim
 contract luv_crowdsale is Crowdsale, MintedCrowdsale, TimedCrowdsale {
 
     constructor(uint256 rate, address payable wallet, IERC20 token, uint256 openingTime, uint256 closingTime) public
-    Crowdsale(rate, wallet, token) TimedCrowdsale(openingTime, closingTime) /*July 1st 2019 GMT to Jan 1st 2030 GMT*/ {
+    Crowdsale(rate, wallet, token) TimedCrowdsale(openingTime, closingTime) {
         _initialRate = rate;
     }
 

@@ -16,6 +16,8 @@ $(document).ready(function() {
 EmbarkJS.onReady(error => {
     if (error) {
         console.error('Error while connecting to web3', error);
+        $("#no_metamask").removeAttr("hidden");
+        $("#info").hide();
         return;
     }
     //Current Supply 
@@ -75,7 +77,7 @@ const second = 1000,
       hour = minute * 60,
       day = hour * 24;
 
-const utcDate = 1561939200; //Equal to opening time of crowdsale -- It's Unix Epoch time
+const utcDate = 1564617600; //Equal to opening time of crowdsale -- It's Unix Epoch time
 
 let countDown = new Date(utcDate*second).getTime(),
     x = setInterval( function() {
