@@ -1,12 +1,38 @@
-/*Text size tweak*/
-p {
-    font-size: 1.3rem;
+/*Size changes for mobile phone version and tablet*/
+
+@media screen and (max-width: 800px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  /* For the list of stats displayed */
+  div.stat {
+    font-size: 1.5rem;
+  }
+
+  li.buttonoid {
+    font-size: 3rem;
+  }
+
+  #titleL {
+    font-size: 38vw !important;
+  }
+
+  #titleUV {
+    font-size: 34vw !important;
+  }
 }
 
-/*Coins background for the purchase section*/
-.buyBg{
-    background-image: url('../assets/img/luv_coins.svg');
-    background-repeat: no-repeat;
-    background-position: center; 
-    position: relative;
+@media screen and (max-width: 400px) {
+  li a {
+    font-size: 0.8em;
   }
+}

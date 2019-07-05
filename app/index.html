@@ -7,7 +7,6 @@
     <title>Luv</title>
     <link rel="icon" href="assets/img/favicon.png">
     <link rel="stylesheet" href="assets/css/app.css">
-    <link rel="stylesheet" href="/css/app.css">
   </head>
 <body>
 
@@ -15,7 +14,7 @@
     <article class="top-bar">
         <div class="top-bar-left">
         <ul class="menu">
-          <li><span><img style="width: 2em; margin: 0.2rem 1rem" src="assets/img/logo_white.svg" alt="luv logo"></span></li>
+          <li><span><img style="width: 2em; margin: 0.2rem 1rem" src="assets/img/logo_white.svg"></span></li>
           <li><a href="index.html" style="color: white">Home</a></li>
         <li><a href="whitepaper.html" style="color: white">Whitepaper</a></li>
         </ul>
@@ -24,8 +23,8 @@
 
 <div class="callout large">
   <div class="row column text-center">
-  <h1 style="color: #ff2a2a; font-size: 25vw">L<span style="color: #ff2a2a; font-size: 20vw">UV</span></h1>
-  <p class="lead">The kind of love you can buy, sell or trade for kitties!</p>
+  <h1 style="color: #ff2a2a; font-size: 32vw">L<span style="color: #ff2a2a; font-size: 26vw">UV</span></h1>
+  <p>The kind of love you can buy, sell or trade for kitties!</p>
   <br>
   <a href="#learn" class="button large">Learn More</a>
   <a href="#buy" class="button large hollow">Buy now</a>
@@ -33,26 +32,26 @@
   </div>
   <article id="learn" class="grid-container">
   <div class="grid-x grid-margin-x">
-  <div class="medium-6 cell small-order-2 medium-order-1">
+  <div class="medium-6 cell small-order-1 medium-order-1">
   <br>
-  <h2><b>The token of love</b></h2>
+  <h1><b>The token of love</b></h1>
   <p>The Luv coin is an ERC20 token. Luv is quite special since it differs from most tokens, that gain their value from the service that they are used for, since there is <b>no</b> such service. Luv tokens are practically useless! <br>However, they do have a value that transends matter and all physical limitations; they are worth as much as love!<br>That is because LUV is the token of love!</p>
   </div>
-  <div class="medium-6 cell small-order-1 medium-order-2">
+  <div class="medium-6 cell small-order-2 medium-order-2">
   <img style="padding:8%" src="assets/img/logo.svg" alt="luv logo">
   </div>
   </div>
   <div class="grid-x grid-margin-x">
   <div class="medium-4 cell">
-  <h3><b>Love has a price now!</b></h3>
+  <h2><b>Love has a price now!</b></h2>
   <p>The monetization of love has been a thing since ever...<br>Now it's time to actually price Luv and sell it!</p>
   </div>
   <div class="medium-4 cell">
-  <h3><b>Luv is countable!</b></h3>
+  <h2><b>Luv is countable!</b></h2>
   <p>The trick question "How much do you love me?" can now be answered with a precision of atleast 18 digits!</p>
   </div>
   <div class="medium-4 cell">
-  <h3><b>As much as you want!</b></h3>
+  <h2><b>As much as you want!</b></h2>
   <p>Luv will be minted with your ethereum and it's price will increase. <br>Love keeps getting more and more expensive anyway!..</p>
   </div>
   </div>
@@ -74,14 +73,14 @@
   <li><a href="#stats"><div class="stat" id="luvMinted">loading...</div><h5 class="subheader">Current Supply</h5></a></li>
   <li><a href="#stats"><div class="stat" id="ethCollected">loading...</div><h5 class="subheader">Collected</h5></a></li>
   <li><a href="#stats"><div class="stat" id="rate">loading...</div><h5 class="subheader">Rate</h5></a></li>
-  <li><a href="#stats"><div class="stat" id="price">loading...</div><h5 class="subheader">Price</h5></a></li>
+  <li id="priceDisplay" hidden><a href="#stats"><div class="stat" id="price">loading...</div><h5 class="subheader">Price</h5></a></li>
   </ul>
   </div>
   <hr>
 
   <div id="countdown" class="row column">   
     <br>
-    <h2 class="text-center"><b>Time left until Luv becomes buyable!</b></h2>
+    <h1 class="text-center"><b>Time left until Luv becomes buyable!</b></h1>
     <br>
     <!--Countdown timer-->
     <ul class="vertical menu">
@@ -92,32 +91,32 @@
     </ul>
 </div>
   <div id="buyDiv" class="row column buyBg" style="height: 85vh">
-    <h1 id="buy" class="text-center"><b>Get some Luv!</b></h1>
+    <h2 id="buy" class="text-center"><b>Get some Luv!</b></h2>
 
     <div class="grid-x">
       <div class="cell large-auto"></div>
       <div class="cell large-auto">
-        <br><br>
-      <div class="grid-x">
+        <br><br><br><br>
+      <div class="grid-x grid-margin-x">
         <div class="cell shrink">
           <!--Luv logo-->
-          <img style="width: 2.5em; margin-right: 1em" src="assets/img/luv-logo-inv.png" alt="luv logo" />
+          <img style="width: 2em" src="assets/img/luv-logo-inv.png" alt="luv logo" />
         </div>
         <div class="cell auto">
-          <!--Luv box-->
-          <input id="luvBox" type="number" min="0" placeholder="LUV"
-            style="min-width: 20em; border-radius: 100px; font-size: x-large" />
+            <!--Luv box-->
+            <input id="luvBox" type="number" min="0" placeholder="LUV"
+              style="border-radius: 100px; font-size: x-large" />
         </div>
       </div>
-      <div class="grid-x">
+      <div class="grid-x grid-margin-x">
         <div class="cell shrink">
           <!--Eth logo-->
-          <img style="width: 2.5em; margin-right: 1em" src="assets/img/eth-logo.png" alt="eth logo" />
+          <img style="width: 2em" src="assets/img/eth-logo.png" alt="eth logo" />
         </div>
         <div class="cell auto">
-          <!--Eth box-->
-          <input id="ethBox" type="number" min="0" placeholder="ETH"
-            style="min-width: 20em; border-radius: 100px; font-size: x-large" />
+            <!--Eth box-->
+              <input id="ethBox" type="number" min="0" placeholder="ETH"
+                style="border-radius: 100px; font-size: x-large" />
         </div>
       </div> 
       </div>
@@ -138,7 +137,7 @@
   </div>
 </article>
 
-<!--<script src="assets/js/app.js"></script>-->
+<link rel="stylesheet" href="/css/app.css">
 <script src="js/app.js"></script>
 </body>
 </html>

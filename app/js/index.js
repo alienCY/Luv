@@ -20,6 +20,31 @@ EmbarkJS.onReady(error => {
         $("#info").hide();
         return;
     }
+
+    if($(window).width() < 600) //If it's a mobile phone - small width screen
+    {
+    //Current Supply 
+    luv_token.methods.totalSupply().call().then(value => {
+        $("#luvMinted").text((parseFloat(value / 1e18)).toFixed(3) + " LUV");
+    });
+
+    //Collected Ethereum
+    luv_crowdsale.methods.weiRaised().call().then(value => {
+        $("#ethCollected").text((parseFloat(value / 1e18)).toFixed(3) + " ETH");
+    });
+
+    //Rate
+    luv_crowdsale.methods.rate().call().then(value => {
+        $("#rate").text((parseFloat(value)).toFixed(3) + " LUV/ETH");  //rate() is luv/eth rate
+        rate = value;
+    });
+
+    //Price 
+    $('#priceDisplay').hide(); //hide it from mobile phones
+
+    } 
+    else //if it's a big monitor
+    {
     //Current Supply 
     luv_token.methods.totalSupply().call().then(value => {
         $("#luvMinted").text((parseFloat(value / 1e18)).toFixed(18) + " LUV");
@@ -37,14 +62,12 @@ EmbarkJS.onReady(error => {
     });
 
     //Price
+    $('#priceDisplay').removeAttr('hidden'); //show price
     luv_crowdsale.methods.getCurrentPrice().call().then(value => {
         $("#price").text((parseFloat(value / 1e18)).toFixed(18) + " ETH/LUV");
     });
-
-
-    //Default Input Box Values:
-    //$("#ethBox").val(parseFloat($("#ethBox").val()).toFixed(18));
-    //$("#luvBox").val(parseFloat($("#luvBox").val()).toFixed(18));
+    }
+    
 });
 
 //ETH input field
