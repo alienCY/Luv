@@ -16,7 +16,7 @@ $(document).ready(function() {
 EmbarkJS.onReady(error => {
     if (error) {
         console.error('Error while connecting to web3', error);
-        $("#no_metamask").removeAttr("hidden");
+        $("#no_metamask").removeAttr("hidden"); //change stats/info to metamask error
         $("#info").hide();
         return;
     }
@@ -89,7 +89,15 @@ $("#buyLuv_btn").click(function() {
         luv_crowdsale.methods.buyTokens(accounts[0]).send({value: weiPayed});
         //$("#buyLuv_btn").text(accounts[0]); //for testing puproses
     })
-    .catch(error => console.log(error));
+    .catch(error => { //if no metamask
+        console.log(error);
+        //if the "no metamask" error is displayed go to it
+        if($("#no_metamask").is(":visible"))
+        {
+            $("#no_metamask")[0].scrollIntoView();
+            window.scrollBy(0, -window.innerHeight/2); //center align
+        }
+    });
 });
 
 }); //End of onReady()
