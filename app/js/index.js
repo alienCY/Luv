@@ -9,20 +9,23 @@ import $ from 'jquery';
 import luv_crowdsale from 'Embark/contracts/luv_crowdsale';
 import luv_token from 'Embark/contracts/luv_token';
 
+
 var rate = 0;
 
 $(document).ready(function() {
 
-EmbarkJS.onReady(error => {
-    if (error) {
-        console.error('Error while connecting to web3', error);
+EmbarkJS.onReady(err => {
+    if (err) {
+        console.error('Error while connecting to web3', err);
         $("#no_metamask").removeAttr("hidden"); //change stats/info to metamask error
         $("#info").hide();
         return;
     }
 
+    console.log("embarkjs starts");
+
     if($(window).width() < 600) //If it's a mobile phone - small width screen
-    {
+    {        
     //Current Supply 
     luv_token.methods.totalSupply().call().then(value => {
         $("#luvMinted").text((parseFloat(value / 1e18)).toFixed(3) + " LUV");
@@ -47,8 +50,9 @@ EmbarkJS.onReady(error => {
     {
     //Current Supply 
     luv_token.methods.totalSupply().call().then(value => {
+        console.log("call made");
         $("#luvMinted").text((parseFloat(value / 1e18)).toFixed(18) + " LUV");
-    });
+    });    
 
     //Collected Ethereum
     luv_crowdsale.methods.weiRaised().call().then(value => {
@@ -59,13 +63,11 @@ EmbarkJS.onReady(error => {
     luv_crowdsale.methods.rate().call().then(value => {
         $("#rate").text((parseFloat(value)).toFixed(18) + " LUV/ETH");  //rate() is luv/eth rate
         rate = value;
+        //Price (after rate is set)
+        $("#price").text((parseFloat(1 / rate)).toFixed(18) + " ETH/LUV");
     });
 
-    //Price
-    $('#priceDisplay').removeAttr('hidden'); //show price
-    luv_crowdsale.methods.getCurrentPrice().call().then(value => {
-        $("#price").text((parseFloat(value / 1e18)).toFixed(18) + " ETH/LUV");
-    });
+        $('#priceDisplay').removeAttr('hidden'); //show price
     }
     
 });
@@ -89,13 +91,13 @@ $("#buyLuv_btn").click(function() {
         luv_crowdsale.methods.buyTokens(accounts[0]).send({value: weiPayed});
         //$("#buyLuv_btn").text(accounts[0]); //for testing puproses
     })
-    .catch(error => { //if no metamask
-        console.log(error);
+    .catch(err => {
+        console.log(err);
         //if the "no metamask" error is displayed go to it
         if($("#no_metamask").is(":visible"))
         {
             $("#no_metamask")[0].scrollIntoView();
-            window.scrollBy(0, -window.innerHeight/2); //center align
+            window.scrollBy(0, -window.innerHeight/2); //center align. Should have added half of element's height
         }
     });
 });
@@ -108,7 +110,7 @@ const second = 1000,
       hour = minute * 60,
       day = hour * 24;
 
-const utcDate = 1564617600; //Equal to opening time of crowdsale -- It's Unix Epoch time
+const utcDate = 1564001347; //Equal to opening time of crowdsale -- It's Unix Epoch time
 
 let countDown = new Date(utcDate*second).getTime(),
     x = setInterval( function() {

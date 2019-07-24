@@ -1,3 +1,5 @@
+const secrets = require('./secrets');
+
 module.exports = {
   // applies to all environments
   default: {
@@ -128,19 +130,17 @@ module.exports = {
     ]
   },
 
-  // merges with the settings in default
-  // used with "embark run livenet" and/or "embark blockchain livenet"
-  livenet: {
-    networkType: "livenet",
-    syncMode: "light",
-    rpcCorsDomain: "http://localhost:8000",
-    wsOrigins: "http://localhost:8000",
-    accounts: [
+  //For deploying in mainnet
+  mainnet: {
+    networkType: "custom",
+    networkId: 3, //SET TO 1 WHEN DONE TESTING
+    syncMode: "light"
+    /*,accounts: [
       {
         nodeAccounts: true,
-        password: "config/livenet/password"
+        password: "config/mainnet/password"
       }
-    ]
+    ]*/
   }
 
   // you can name an environment with specific settings and then specify with

@@ -1,5 +1,3 @@
-/*Size changes for mobile phone version and tablet*/
-
 @media screen and (max-width: 800px) {
   h1 {
     font-size: 1.8rem;
@@ -30,6 +28,7 @@
     font-size: 34vw !important;
   }
 }
+/* Size changes for mobile phone version ^ and tablet V */
 
 @media screen and (max-width: 400px) {
   li a {

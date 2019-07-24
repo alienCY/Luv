@@ -7,3 +7,4 @@ dist
 embarkArtifacts
 node_modules
 config/secrets.json
+config/mainnet/password

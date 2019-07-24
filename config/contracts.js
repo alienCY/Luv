@@ -30,16 +30,11 @@ module.exports = {
           "nodeAccounts": true // Uses the Ethereum node's accounts
         }
       ]*/
-      ,accounts: [
-        {
-          privateKey: secrets.privateKey,
-          balance: "50 ether"
-        }
-      ]
     },
     // order of connections the dapp should connect to
     dappConnection: [
       "$WEB3",  // uses pre existing web3 object if available (e.g in Mist)
+      "https://ropsten.infura.io/v3/39e6d52668b54096874f6555b2123cff" //to connect and fetch data if metamask isn't installed
       //"ws://localhost:8546",
       //"http://localhost:8545"
     ],
@@ -58,48 +53,50 @@ module.exports = {
     // - explicit will only attempt to deploy the contracts that are explicitly specified inside the
     //            contracts section.
     strategy: 'explicit',
-
-    contracts: {
-      // example:
-      //SimpleStorage: {
-      //  args: [ 100 ]
-      //}
-      luv_token: {
-        
-      },
-      luv_crowdsale: {
-        args: [1e6, '$accounts[0]', '$luv_token', 1564617600, 1893456000] //1564617600|1893456000 -> August 1st 2019 GMT to Jan 1st 2030 GMT
-      }
-    }
   },
 
   // default environment, merges with the settings in default
   // assumed to be the intended environment by `embark run`
   development: {
-    dappConnection: [
-      "$WEB3",  // uses pre existing web3 object if available (e.g in Mist)
-      //"ws://localhost:8546",
-      //"http://localhost:8545"
-    ]
+    accounts: [
+       {
+        privateKey: secrets.privateKey,
+        balance: "50 ether"
+       }
+    ],
+
+    contracts: {
+      luv_token: {
+        
+      },
+      luv_crowdsale: {
+        args: [1e6, '$accounts[0]', '$luv_token', 1563439434, 1893456000] //1566259200|1893456000 -> August 20th 2019 GMT to Jan 1st 2030 GMT
+      }
+    }
   },
 
-  // merges with the settings in default
-  // used with "embark run privatenet"
-  privatenet: {
+  mainnet: {
+    deployment:{
+      accounts: [
+        {
+          privateKey: secrets.privateKey
+        }
+      ],
+      host: "ropsten.infura.io/v3/39e6d52668b54096874f6555b2123cff",
+      port: false,
+      protocol: 'https',
+      type: "rpc"
+    },
+    
+    contracts: {
+      luv_token: {
+        //from: '$accounts[0]'
+      },
+      luv_crowdsale: {
+        //from: '$accounts[0]',
+        args: [1e6, '0xB6A7408864e1Fa44a330218d9F716016f58b5b5f', '$luv_token', 1564001347, 1893456000] //1566259200|1893456000 -> August 20th 2019 GMT to Jan 1st 2030 GMT
+      }
+    }
   },
 
-  // merges with the settings in default
-  // used with "embark run testnet"
-  testnet: {
-  },
-
-  // merges with the settings in default
-  // used with "embark run livenet"
-  livenet: {
-  },
-
-  // you can name an environment with specific settings and then specify with
-  // "embark run custom_name" or "embark blockchain custom_name"
-  //custom_name: {
-  //}
 };
