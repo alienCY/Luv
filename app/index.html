@@ -22,7 +22,7 @@
     </article>
 
 <div class="callout large">
-  <div class="row column text-center" data-smooth-scroll>
+  <div class="row column text-center">
     <h1 id="titleL" style="color: #ff2a2a; font-size: 48vh">L<span id="titleUV" style="color: #ff2a2a; font-size: 40vh">UV</span></h1>
   <p>
     The kind of love you can buy, sell or trade for kitties!
@@ -36,13 +36,13 @@
   <div class="grid-x grid-margin-x">
   <div class="medium-6 cell small-order-1 medium-order-1">
   <br>
-  <h1><b>The token of <i>love</i></b></h1>
+  <h1><b>The token of love</b></h1>
   <p>
       The Luv coin is an ERC20 token. Luv is quite special since it differs from most tokens,
        that gain their value from the service that they are used for, since there is <b>no</b> such service!
       Exchanging, buying and selling the Luv tokens is all they are meant to be used for.<br>
       That is because Luv is a special kind of token.<br>
-      Luv is the token of <i>love</i>.<br>
+      Luv is the token of love.<br>
   </p>
   </div>
   <div class="medium-6 cell small-order-2 medium-order-2">
@@ -66,7 +66,7 @@
   <div class="medium-4 cell">
   <h2><b>Luv for all!</b></h2>
   <p>
-      Luv will be created with your ethereum and be added to the total supply.<br>
+      Luv will be minted with your ethereum and be added to the total supply.<br>
       Meanwhile, Luv's price will increase based on the new total supply.
   </p>
   </div>
@@ -137,18 +137,27 @@
       </div>
     </div> 
   </div> <!--Buy div--> 
+
+    <!--Error if it connects to infura node just to fetch data you can't buy-->
+    <div hidden id="no_metamask2">
+      <h5 class="subheader text-center">
+        Cannot connect to any wallets.<br>
+        Consider installing the Metamask extension or using a specialized browser.
+      </h5>
+    </div>
+
   <button id="buyLuv_btn" class="button large expanded">Buy</button>
   </article>
 
 <!--Footer menu-->
 <article class="grid-container">
   <div class="grid-x menu">
-  <a href="#"><img class="icon" src="assets/img/Medium-logo.png"></a>
+  <a href="https://medium.com/luv-token"><img class="icon" src="assets/img/Medium-logo.png"></a>
   <a href="https://twitter.com/theluvtoken"><img class="icon" src="assets/img/Twitter-logo.png"></a>
   <a href="https://github.com/alienCY/Luv"><img class="icon" src="assets/img/GitHub-logo.png"></a>
   <a href="https://t.me/luvtoken"><img class="icon" src="assets/img/Telegram-logo.png"></a>
   </div>
-  <h6 class="small subheader text-center">This site is hosted on IPFS</h6>
+  <h6 class="small subheader text-center">This site is hosted on IPFS.</h6>
 </article>
 
 <link rel="stylesheet" href="css/app.css">

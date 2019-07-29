@@ -133,7 +133,7 @@ module.exports = {
   //For deploying in mainnet
   mainnet: {
     networkType: "custom",
-    networkId: 3, //SET TO 1 WHEN DONE TESTING
+    networkId: 1, //SET TO 1 WHEN DONE TESTING
     syncMode: "light"
     /*,accounts: [
       {

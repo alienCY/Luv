@@ -22,7 +22,16 @@ EmbarkJS.onReady(err => {
         return;
     }
 
-    console.log("embarkjs starts");
+    //Make a bogus account to call the contracts when pre existing web3 object won't load properly
+    if (!web3.eth.defaultAccount) {
+        const wallet = web3.eth.accounts.wallet.create(1);
+        web3.eth.defaultAccount = wallet[0].address;
+        luv_token.options.from = wallet[0].address;
+        luv_crowdsale.options.from = wallet[0].address;
+        //Say that it's not properly connected
+        $("#no_metamask2").removeAttr("hidden");
+        $("#buyLuv_btn").attr("disabled", true);
+   }
 
     if($(window).width() < 600) //If it's a mobile phone - small width screen
     {        
@@ -50,7 +59,6 @@ EmbarkJS.onReady(err => {
     {
     //Current Supply 
     luv_token.methods.totalSupply().call().then(value => {
-        console.log("call made");
         $("#luvMinted").text((parseFloat(value / 1e18)).toFixed(18) + " LUV");
     });    
 
@@ -110,7 +118,7 @@ const second = 1000,
       hour = minute * 60,
       day = hour * 24;
 
-const utcDate = 1564001347; //Equal to opening time of crowdsale -- It's Unix Epoch time
+const utcDate = 1566259200; //Equal to opening time of crowdsale -- It's Unix Epoch time
 
 let countDown = new Date(utcDate*second).getTime(),
     x = setInterval( function() {

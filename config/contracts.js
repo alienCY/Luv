@@ -34,7 +34,7 @@ module.exports = {
     // order of connections the dapp should connect to
     dappConnection: [
       "$WEB3",  // uses pre existing web3 object if available (e.g in Mist)
-      //"https://ropsten.infura.io/v3/39e6d52668b54096874f6555b2123cff" //to connect and fetch data if metamask isn't installed
+      "https://mainnet.infura.io/v3/39e6d52668b54096874f6555b2123cff" //to connect and fetch data if metamask isn't installed
       //"ws://localhost:8546",
       //"http://localhost:8545"
     ],
@@ -42,7 +42,7 @@ module.exports = {
     // Automatically call `ethereum.enable` if true.
     // If false, the following code must run before sending any transaction: `await EmbarkJS.enableEthereum();`
     // Default value is true.
-    // dappAutoEnable: true,
+    dappAutoEnable: true,
 
     gas: "auto",
 
@@ -70,7 +70,7 @@ module.exports = {
         
       },
       luv_crowdsale: {
-        args: [1e6, '$accounts[0]', '$luv_token', 1563439434, 1893456000] //1566259200|1577836800 -> August 20th 2019 GMT to Jan 1st 20200 GMT
+        args: [1e6, '$accounts[0]', '$luv_token', 1566259200, 1577836800] //1566259200|1577836800 -> August 20th 2019 GMT to Jan 1st 20200 GMT
       }
     }
   },
@@ -82,7 +82,7 @@ module.exports = {
           privateKey: secrets.privateKey
         }
       ],
-      host: "ropsten.infura.io/v3/39e6d52668b54096874f6555b2123cff",
+      host: "mainnet.infura.io/v3/39e6d52668b54096874f6555b2123cff",
       port: false,
       protocol: 'https',
       type: "rpc"
@@ -94,7 +94,7 @@ module.exports = {
       },
       luv_crowdsale: {
         //from: '$accounts[0]',
-        args: [1e6, '0xB6A7408864e1Fa44a330218d9F716016f58b5b5f', '$luv_token', 1564001347, 1893456000] //1566259200|1577836800 -> August 20th 2019 GMT to Jan 1st 2020 GMT
+        args: [1e6, '0xB6A7408864e1Fa44a330218d9F716016f58b5b5f', '$luv_token', 1566259200, 1577836800] //1566259200|1577836800 -> August 20th 2019 GMT to Jan 1st 2020 GMT
       }
     }
   },
